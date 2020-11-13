@@ -1,20 +1,26 @@
 import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+import { Route, Switch } from 'react-router-dom';
+import HabitsPage from '../../pages/HabitsPage';
 
-const GlobalStyle = createGlobalStyle`
-  * {
-    padding: 0;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-  }
-`;
+import LandingPage from '../../pages/LandingPage';
+import LoginPage from '../../pages/LoginPage';
+import NotFoundPage from '../../pages/NotFoundPage';
+import RegisterPage from '../../pages/RegisterPage';
+import ProtectedRoute from '../ProtectedRoute';
+
+import { AppStyle } from './AppStyle';
 
 function App() {
   return (
-    <>
-      <GlobalStyle />
-      <h1>Habit Tracker</h1>
-    </>
+    <AppStyle>
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/register" component={RegisterPage} />
+        <Route path="/login" component={LoginPage} />
+        <ProtectedRoute path="/habits" component={HabitsPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </AppStyle>
   );
 }
 
