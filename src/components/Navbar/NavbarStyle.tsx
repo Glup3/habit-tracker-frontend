@@ -18,7 +18,7 @@ export const NavbarStyle = styled.nav`
       flex: auto;
       text-align: center;
 
-      &::hover {
+      &:hover {
         background-color: #555;
         color: white;
       }
@@ -28,6 +28,10 @@ export const NavbarStyle = styled.nav`
   @media screen and (min-width: 480px) {
     ul {
       flex-direction: row;
+
+      li:first-child {
+        text-align: left;
+      }
     }
   }
 `;
