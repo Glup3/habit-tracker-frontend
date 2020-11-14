@@ -6,6 +6,7 @@ import LandingPage from '../../pages/LandingPage';
 import LoginPage from '../../pages/LoginPage';
 import NotFoundPage from '../../pages/NotFoundPage';
 import RegisterPage from '../../pages/RegisterPage';
+import Navbar from '../Navbar';
 import ProtectedRoute from '../ProtectedRoute';
 
 import { AppStyle } from './AppStyle';
@@ -13,6 +14,7 @@ import { AppStyle } from './AppStyle';
 function App() {
   return (
     <AppStyle>
+      <Navbar />
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route path="/register" component={RegisterPage} />
